@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def list_albums(request):
+    pass
+
+def create_album(request):
+    pass
