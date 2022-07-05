@@ -15,17 +15,27 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.conf import settings
+from django.urls import include, path
 from albums import views as album_views
 
-#URL Config
+# URL Configurations
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('__debug__/', include('debug_toolbar.urls')),
     
     # Home
-    path('', album_views.list_albums, name='list_albums'),
+    path('', album_views.list_albums),
 
     # Child URLs
     path('albums/', album_views.create_album, name='create_album'),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
