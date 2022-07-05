@@ -3,7 +3,7 @@ from .models import Album
 
 def list_albums(request):
     albums = Album.objects.all()
-    return render(request, 'albums/list_albums.html',{'albums': albums})
+    return render(request, 'albums/list_albums.html', {'albums': albums})
 
 def create_album(request):
     pass

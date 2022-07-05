@@ -2,6 +2,13 @@
 
 {% block content %}
 
-<h2>Albums</h2>
+<h1>Albums</h1>
+<div class="flex flex-wrap">
+    {% for album in albums %}
+    <div>
+        <h2>{{ album.title }}</h2>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
