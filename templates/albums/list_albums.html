@@ -6,7 +6,17 @@
     {% for album in albums %}
     <div>
         <h2>{{ album.title }}</h2>
-        <p>{{ album.artists.all }}</p>
+        <div>
+            {% for artist in album.artists.all %}
+
+            {{ artist }}
+            <br>
+        </div>
+        {% endfor %}
+
+
+
+        <!-- <p>{{ album.artists.all }}</p> -->
     </div>
     {% endfor %}
 </div>
