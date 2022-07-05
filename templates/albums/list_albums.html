@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<h1>Albums</h1>
 <div class="flex flex-wrap">
     {% for album in albums %}
     <div>
         <h2>{{ album.title }}</h2>
+        <p>{{ album.artists.all }}</p>
     </div>
     {% endfor %}
 </div>
