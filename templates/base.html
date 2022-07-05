@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Music</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/tachyons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
 </head>
 
 <body>
-    <h1>Django Music</h1>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
 
 </body>
 

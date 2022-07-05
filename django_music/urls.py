@@ -25,7 +25,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     
     # Home
-    path('', album_views.list_albums),
+    path('', album_views.list_albums, name='list_albums'),
 
     # Child URLs
     path('albums/', album_views.create_album, name='create_album'),
