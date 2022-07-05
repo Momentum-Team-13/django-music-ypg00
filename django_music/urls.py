@@ -31,11 +31,11 @@ urlpatterns = [
     path('albums/', album_views.create_album, name='create_album'),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns = [
+#         path('__debug__/', include(debug_toolbar.urls)),
 
-        # For django versions before 2.0:
-        # url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+#         # For django versions before 2.0:
+#         # url(r'^__debug__/', include(debug_toolbar.urls)),
+#     ] + urlpatterns
