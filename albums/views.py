@@ -28,52 +28,19 @@ def add_artist(request):
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    # artists = album.artists
     return render(request, 'albums/album_detail.html', {'album': album})
 
+def edit_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(data=request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_albums')
 
+    return render(request, "albums/edit_album.html", {"album": album, "form": form})
 
-# def edit_contact(request, pk):
-#     contact = get_object_or_404(Contact, pk=pk)
-#     if request.method == 'GET':
-#         form = ContactForm(instance=contact)
-#     else:
-#         form = ContactForm(data=request.POST, instance=contact)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(to='list_contacts')
-
-#     return render(request, "contacts/edit_contact.html", {
-#         "form": form,
-#         "contact": contact
-#     })
-
-# def delete_contact(request, pk):
-#     contact = get_object_or_404(Contact, pk=pk)
-#     if request.method == 'POST':
-#         contact.delete()
-#         return redirect(to='list_contacts')
-
-#     return render(request, "contacts/delete_contact.html", {"contact": contact})
-
-
-# def add_note(request, pk):
-#     contact = get_object_or_404(Contact, pk=pk)
-#     if request.method == 'GET':
-#         form = NoteForm()
-#     else:
-#         form = NoteForm(data=request.POST)
-#         if form.is_valid():
-#             new_note = form.save(commit=False)
-#             new_note.contact = contact
-#             new_note.save()
-#             return redirect(to='contact_detail', pk=pk)
-
-#     return render(request, "contacts/notes.html", {"contact": contact, "form": form}) 
-
-# def delete_note(request, pk):
-#     note = get_object_or_404(Note, pk=pk)
-#     contact_pk = note.contact.pk
-#     if request.method == 'POST':
-#         note.delete()
-#         return redirect(to='contact_detail', pk=contact_pk)
+def delete_album(request, pk):
+    pass

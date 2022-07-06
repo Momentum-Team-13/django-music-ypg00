@@ -3,15 +3,14 @@
 {% block content %}
 
 <div>
+    <h3>{{ album.title }}</h3>
     <div>
-        <h3>{{ album.title }}</h3>
-        <div>
-            {% for artist in album.artists.all %}
-            {{ artist }}
-            <br>
-            {% endfor %}
-        </div>
+        {% for artist in album.artists.all %}
+        {{ artist }}
+        <br>
+        {% endfor %}
     </div>
+    <p><a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a></p>
 </div>
 
 {% endblock %}
