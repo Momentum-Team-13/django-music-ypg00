@@ -3,8 +3,10 @@ from .models import Album, Artist
 
 def list_albums(request):
     albums = Album.objects.all()
-    artists = Artist.objects.all()
-    return render(request, 'albums/list_albums.html', {'albums': albums, 'artists': artists})
+    return render(request, 'albums/list_albums.html', {'albums': albums})
 
-def create_album(request):
-    pass
+def add_album(request):
+    return render(request, 'albums/add_album.html')
+
+def add_artist(request):
+    return render(request, 'artists/add_artist.html')

@@ -16,6 +16,8 @@
 <body>
     <div>
         <h1><a href="{% url 'list_albums' %}">Albums</a></h1>
+        <h5><a href="{% url 'add_album' %}">Add Album</a></h5>
+        <h5><a href="{% url 'add_artist' %}">Add Artist</a></h5>
 
         {% block content %}
         {% endblock %}

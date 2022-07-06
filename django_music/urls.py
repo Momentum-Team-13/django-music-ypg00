@@ -28,7 +28,8 @@ urlpatterns = [
     path('', album_views.list_albums, name='list_albums'),
 
     # Child URLs
-    path('albums/', album_views.create_album, name='create_album'),
+    path('albums/', album_views.add_album, name='add_album'),
+    path('artists/', album_views.add_artist, name='add_artist'),
 ]
 
 # if settings.DEBUG:
