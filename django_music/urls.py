@@ -30,9 +30,10 @@ urlpatterns = [
 
     # Album
     path('albums/', album_views.add_album, name='add_album'),
-    path('artists/', album_views.add_artist, name='add_artist'),
-    path('albums/<int:pk>/view', album_views.album_detail, name='album_detail')
+    path('albums/<int:pk>/', album_views.album_detail, name='album_detail'),
 
+    # Artist
+    path('artists/', album_views.add_artist, name='add_artist'),
 ]
 
 # if settings.DEBUG:

@@ -5,7 +5,7 @@
 <div>
     {% for album in albums %}
     <div>
-        <h3>{{ album.title }}</h3>
+        <h3><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></h3>
         <div>
             {% for artist in album.artists.all %}
             {{ artist }}

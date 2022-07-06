@@ -28,8 +28,8 @@ def add_artist(request):
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    artists = album.artists(Album, pk=pk)
-    return render(request, 'album/album_detail.html', {'album': album, 'artists': artists})
+    # artists = album.artists
+    return render(request, 'albums/album_detail.html', {'album': album})
 
 
 
