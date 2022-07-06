@@ -5,12 +5,14 @@ class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
         fields = [
-            
+            'title',
+            'artists',
+            'created_at',
         ]
 
-class Artist(forms.ModelForm):
+class ArtistForm(forms.ModelForm):
     class Meta:
         model = Note
         fields = [
-            
+            'name',
         ]

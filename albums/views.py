@@ -6,7 +6,14 @@ def list_albums(request):
     return render(request, 'albums/list_albums.html', {'albums': albums})
 
 def add_album(request):
-    return render(request, 'albums/add_album.html')
+    if request.method == 'GET':
+        form = AlbumForm()
+    else:
+        form = AlbumForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_albums')
+    return render(request, 'albums/add_album.html', {'form': form})
 
 def add_artist(request):
     return render(request, 'artists/add_artist.html')
