@@ -43,4 +43,8 @@ def edit_album(request, pk):
     return render(request, "albums/edit_album.html", {"album": album, "form": form})
 
 def delete_album(request, pk):
-    pass
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'POST':
+        album.delete()
+        return redirect(to='list_albums')
+    return render(request, "albums/delete_album.html", {"album": album})
