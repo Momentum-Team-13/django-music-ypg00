@@ -21,15 +21,18 @@ from albums import views as album_views
 
 # URL Configurations
 urlpatterns = [
+    # Admin
     path('admin/', admin.site.urls, name='admin'),
     path('__debug__/', include('debug_toolbar.urls')),
     
     # Home
     path('', album_views.list_albums, name='list_albums'),
 
-    # Child URLs
+    # Album
     path('albums/', album_views.add_album, name='add_album'),
     path('artists/', album_views.add_artist, name='add_artist'),
+    path('albums/<int:pk>/view', album_views.album_detail, name='album_detail')
+
 ]
 
 # if settings.DEBUG:
