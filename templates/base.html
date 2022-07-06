@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Django Music</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="{% static 'css/tachyons.min.css' %}">
     <link rel="stylesheet" href="{% static 'icofont/icofont.min.css' %}">
 </head>
@@ -16,8 +16,8 @@
 <body>
     <div>
         <h1><a href="{% url 'list_albums' %}">Albums</a></h1>
-        <h5><a href="{% url 'add_album' %}">Add Album</a></h5>
-        <h5><a href="{% url 'add_artist' %}">Add Artist</a></h5>
+        <p><a href="{% url 'add_album' %}">Add Album</a></p>
+        <p><a href="{% url 'add_artist' %}">Add Artist</a></p>
 
         {% block content %}
         {% endblock %}

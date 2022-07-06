@@ -5,18 +5,13 @@
 <div class="flex flex-wrap">
     {% for album in albums %}
     <div>
-        <h2>{{ album.title }}</h2>
+        <h3>{{ album.title }}</h3>
         <div>
             {% for artist in album.artists.all %}
-
             {{ artist }}
             <br>
+            {% endfor %}
         </div>
-        {% endfor %}
-
-
-
-        <!-- <p>{{ album.artists.all }}</p> -->
     </div>
     {% endfor %}
 </div>

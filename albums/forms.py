@@ -7,12 +7,11 @@ class AlbumForm(forms.ModelForm):
         fields = [
             'title',
             'artists',
-            'created_at',
         ]
 
 class ArtistForm(forms.ModelForm):
     class Meta:
-        model = Note
+        model = Artist
         fields = [
             'name',
         ]
