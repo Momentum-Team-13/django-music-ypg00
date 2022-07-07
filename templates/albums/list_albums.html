@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div>
+<div class="section is-flex-wrap-wrap">
     {% for album in albums %}
-    <div>
-        <h3><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></h3>
-        <div>
+    <div class="card box">
+        <header class="card-header is-centered is-size-4">
+            <a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a>
+        </header>
+        <div class="card-content">
             {% for artist in album.artists.all %}
-            {{ artist }}
-            <br>
+            <div class="content">
+                {{ artist }}
+            </div>
             {% endfor %}
         </div>
     </div>
     {% endfor %}
 </div>
-
 {% endblock %}

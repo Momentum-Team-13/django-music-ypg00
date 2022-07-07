@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Delete Album</h1>
 
-<div>
-    <h3>{{ album.title }}</h3>
+<div class="card box">
+    <header class="card-header is-centered is-size-4">
+        {{ album.title }}
+    </header>
     <form action="{% url 'delete_album' pk=album.pk %}" method="POST">
         {% csrf_token %}
-        <p>Are you sure you want to delete <strong>{{ album.title }}</strong>?</p>
-        <div>
-            <button type="submit">Delete Album</button><br />
-            <a href="{% url 'list_albums' %}">Cancel</a>
+        <p class="mt-3">Are you sure you want to delete <strong>{{ album.title }}</strong>?</p>
+        <div class="mt-3">
+            <button class="button is-danger is-light" type="submit">Delete</button>
+            <a class="button is-primary is-light" href="{% url 'list_albums' %}">Cancel</a>
         </div>
     </form>
 </div>

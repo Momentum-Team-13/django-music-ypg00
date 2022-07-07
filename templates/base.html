@@ -6,21 +6,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="static/css/style.css">
-    <title>Django Music</title>
+    <title class="title is-size-1">Django Music</title>
 </head>
 
 <body>
-    <div>
-        <h1><a href="{% url 'list_albums' %}">Albums</a></h1>
-        <p><a href="{% url 'add_album' %}">Add Album</a></p>
-        <p><a href="{% url 'add_artist' %}">Add Artist</a></p>
 
-        {% block content %}
-        {% endblock %}
-
+    <h1 class="header is-size-2 has-text-centered"><a href="{% url 'list_albums' %}">Albums</a></h1>
+    <div class="has-text-centered mb-6">
+        <div>
+            <a class="mx-4" href="{% url 'add_album' %}">Add Album </a>
+            <a class="mx-4" href="{% url 'add_artist' %}">Add Artist</a>
+        </div>
     </div>
+    {% block content %}
+    {% endblock %}
+
 </body>
 
 </html>

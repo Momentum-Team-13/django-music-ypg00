@@ -2,16 +2,20 @@
 
 {% block content %}
 
-<div>
-    <h3>{{ album.title }}</h3>
-    <div>
+<div class="card box">
+    <header class="card-header is-centered is-size-4">
+        {{ album.title }}
+    </header>
+    <div class="card-content">
         {% for artist in album.artists.all %}
-        {{ artist }}
-        <br>
+        <div class="content">
+            {{ artist }}
+        </div>
         {% endfor %}
     </div>
-    <p><a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a></p>
-    <p><a href="{% url 'delete_album' pk=album.pk %}">Delete Album</a></p>
+    <button class="button is-primary is-light"><a href="{% url 'edit_album' pk=album.pk %}">Edit</a></button>
+    <button class="button is-primary is-light"><a href="{% url 'delete_album' pk=album.pk %}">Delete</a></button>
+
 </div>
 
 {% endblock %}
