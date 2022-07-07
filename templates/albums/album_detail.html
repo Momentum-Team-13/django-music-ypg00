@@ -12,10 +12,9 @@
             {{ artist }}
         </div>
         {% endfor %}
+        <button class="button is-primary is-light"><a href="{% url 'edit_album' pk=album.pk %}">Edit</a></button>
+        <button class="button is-primary is-light"><a href="{% url 'delete_album' pk=album.pk %}">Delete</a></button>
     </div>
-    <button class="button is-primary is-light"><a href="{% url 'edit_album' pk=album.pk %}">Edit</a></button>
-    <button class="button is-primary is-light"><a href="{% url 'delete_album' pk=album.pk %}">Delete</a></button>
-
 </div>
 
 {% endblock %}
